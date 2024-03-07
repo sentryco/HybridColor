@@ -13,7 +13,7 @@ extension Color {
     * It returns a dynamic color that automatically adjusts to the current interface style.
     * - Note: Works for iOS and macOS
     * ## Examples:
-    * let dynamicColor = Color(light: .black, dark: .white)
+    * let color: Color = .init(light: .black, dark: .white)
     * - Parameters:
     *   - light: The color to be used in light mode.
     *   - dark: The color to be used in dark mode.

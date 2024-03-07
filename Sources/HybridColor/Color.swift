@@ -76,15 +76,4 @@ extension Color {
    public static let tertiaryBackground = Color(UIColor.tertiarySystemBackground)
    #endif
 }
-//extension Color {
-//   static func dynamicColor(light: UIColor, dark: UIColor) -> Color {
-//
-//}
-//extension Color {
-//   // ref: https://stackoverflow.com/a/65200509/5389500
-//   static var primaryColor: Color {
-//      Color(UIColor { $0.userInterfaceStyle == .dark ? UIColor(red: 255, green: 255, blue: 255, alpha: 1) : UIColor(red: 200, green: 200, blue: 200, alpha: 1) })
-//   }
-//
-//}
-// self = Color(nsColor: NSColor(name: "DynamicColor")!)
+

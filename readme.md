@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/HybridColor/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/HybridColor/actions/workflows/Tests.yml)
+
 # HybridColor
 
 HybridColor is a Swift library designed for both macOS and iOS. It offers a seamless way to create SwiftUI colors that adapt to light and dark modes, enhancing the user interface experience across different environments.

@@ -2,16 +2,16 @@ import SwiftUI
 /**
  * - Note: More comprehensive: https://stackoverflow.com/a/77707499/5389500
  * - Note: and tut: https://www.jessesquires.com/blog/2023/07/11/creating-dynamic-colors-in-swiftui/
- * - Fixme: ⚠️️ improve this etc
- * - Fixme: ⚠️️ add support for this for UIColor aswell?
+ * - Fixme: ⚠️️ Add support for this for UIColor aswell? there isnt direct support right now, but there exist workarounds, write about these etc
  * ## Examples:
  * let color = Color(light: .blue, dark: green)
  */
 extension Color {
    /**
     * This method provides a way to define color sets for both light and dark mode.
-    * It returns a dynamic color that automatically adjusts to the current interface style.
+    * - Description: It returns a dynamic color that automatically adjusts to the current interface style.
     * - Note: Works for iOS and macOS
+    * - Fixme: ⚠️️ add type to apperance and traitCollection
     * ## Examples:
     * let dynamicColor = Color(light: .black, dark: .white)
     * - Parameters:
@@ -39,29 +39,30 @@ extension Color {
    }
 }
 /**
+ * Convenience
  * - Note: Extensive color multiplatform lib: https://github.com/diniska/swiftui-system-colors/blob/void/Sources/SystemColors/SystemColors.swift
  * - Note: theme idea: https://stackoverflow.com/a/72235961/5389500
  * - Note: ref: https://stackoverflow.com/a/62207329/5389500
- * - Fixme: ⚠️️ add from here: https://github.com/onmyway133/EasySwiftUI/blob/master/Sources/EasySwiftUI/Extensions/Color.swift
- * - Fixme: ⚠️️ add more color switching and darkmode / lightmode code for different platforms here: https://onmyway133.com/posts/how-to-use-dynamic-color-in-ios/
+ * - Fixme: ⚠️️ Add from here: https://github.com/onmyway133/EasySwiftUI/blob/master/Sources/EasySwiftUI/Extensions/Color.swift
+ * - Fixme: ⚠️️ Add more color switching and darkmode / lightmode code for different platforms here: https://onmyway133.com/posts/how-to-use-dynamic-color-in-ios/
  */
 extension Color {
    /**
     * Useful for dark and light mode
-    * - Fixme: ⚠️️ rename to whiteAndBlack? or wb? and bw?
+    * - Fixme: ⚠️️ Rename to whiteAndBlack? or instead wb? and bw? that would avoid name colision with current implementation code etc
     */
    public static let blackOrWhite: Color = {
       Color.init(light: .white, dark: .black)
    }()
    /**
     * Useful for dark and light mode
-    * - Fixme: ⚠️️ rename to blackOrWhite?
+    * - Fixme: ⚠️️ Rename to blackOrWhite? or instead bw, that would avoid name colision with current implementation code etc
     */
    public static let whiteOrBlack: Color = {
       Color(light: .black, dark: .white)
    }()
    /**
-    * Use background color variants to indicate hierarchy:
+    * Use background color variants to indicate hierarchy
     * - Primary: For the overall view
     * - Secondary: For grouping content within the overall view
     * - Tertiary: For grouping content within secondary elements

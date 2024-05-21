@@ -1,7 +1,9 @@
 import SwiftUI
 #if os(iOS)
 import UIKit
-
+/**
+ * - Fixme: ⚠️️ add doc to these, use copilot
+ */
 extension Color {
    public static var darkGray: Color {
       return .init(uiColor: .darkGray)

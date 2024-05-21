@@ -3,22 +3,22 @@ import SwiftUI
 import Cocoa
 /**
  * - Note: More colors here: and also different for different light / dark modes: https://sarunw.com/posts/dark-color-cheat-sheet/
- * - Fixme: ⚠️️ add lightGray and darkGray with light and dark support
- * - Fixme: ⚠️️ also add systemPurple etc
+ * - Fixme: ⚠️️ Add lightGray and darkGray with light and dark support
+ * - Fixme: ⚠️️ Also add systemPurple etc
  */
 extension Color {
    /**
     * A color object with a grayscale value of 1/3 and an alpha value of 1.0.
     * - Note: ref: https://developer.apple.com/documentation/uikit/uicolor/1621952-darkgray
     * - Fixme: ⚠️️ add rgb hue for dark and light
+    * - Fixme: ⚠️️ document these, use copilot
     */
    public static var darkGray: Color {
       let color = NSColor(red: 1.0/3.0, green: 1.0/3.0, blue: 1.0/3.0, alpha: 1.0)
-      //
       return .init(light: .init(nsColor: color), dark: .init(nsColor: color))
    }
    public static var lightGray: Color {
-      // NSLightGray?
+      // - Fixme: ⚠️️ look into: NSLightGray?
       let color = NSColor(white: 2.0/3.0, alpha: 1.0)
       return .init(color)
    }

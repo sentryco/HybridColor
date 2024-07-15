@@ -10,7 +10,7 @@ extension NSColor {
    public static var darkGray: NSColor {
       .init(red: 1.0/3.0, green: 1.0/3.0, blue: 1.0/3.0, alpha: 1.0)
    }
-   public static var lightGray: Color {
+   public static var lightGray: NSColor {
       .init(white: 2.0/3.0, alpha: 1.0)
    }
    public static var systemGray: NSColor {
@@ -65,19 +65,34 @@ extension Color {
       .init(NSColor.systemGray)
    }
    public static var systemGray2: Color {
-      .init(light: NSColor.systemGray2.light, dark: NSColor.systemGray2.light)
+      .init(
+         light: .init(nsColor: NSColor.systemGray2.light),
+         dark: .init(nsColor:NSColor.systemGray2.light)
+      )
    }
    public static var systemGray3: Color {
-      .init(light: NSColor.systemGray3.light, dark: NSColor.systemGray3.light)
+      .init(
+         light: .init(nsColor: NSColor.systemGray3.light),
+         dark: .init(nsColor: NSColor.systemGray3.light)
+      )
    }
    public static var systemGray4: Color {
-      .init(light: NSColor.systemGray4.light, dark: NSColor.systemGray4.light)
+      .init(
+         light: .init(nsColor: NSColor.systemGray4.light),
+         dark: .init(nsColor: NSColor.systemGray4.light)
+      )
    }
    public static var systemGray5: Color {
-      .init(light: NSColor.systemGray5.light, dark: NSColor.systemGray5.light)
+      .init(
+         light: .init(nsColor: NSColor.systemGray5.light),
+         dark: .init(nsColor: NSColor.systemGray5.light)
+      )
    }
    public static var systemGray6: Color {
-      .init(light: NSColor.systemGray6.light, dark: NSColor.systemGray6.light)
+      .init(
+         light: .init(nsColor: NSColor.systemGray6.light),
+         dark: .init(nsColor: NSColor.systemGray6.light)
+      )
    }
 }
 #endif

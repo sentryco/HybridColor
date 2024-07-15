@@ -7,10 +7,12 @@ import Cocoa
  * - Fixme: ⚠️️ Also add systemPurple etc
  */
 extension NSColor {
-   public static var darkGray: NSColor {
+   // NSColor.darkGray is already occupid etc
+   public static var _darkGray: NSColor {
       .init(red: 1.0/3.0, green: 1.0/3.0, blue: 1.0/3.0, alpha: 1.0)
    }
-   public static var lightGray: NSColor {
+   // NSColor.lightGray is already occupid etc
+   public static var _lightGray: NSColor {
       .init(white: 2.0/3.0, alpha: 1.0)
    }
    public static var systemGray: NSColor {
@@ -43,6 +45,9 @@ extension NSColor {
       return (light, dark)
    }
 }
+/**
+ * Color
+ */
 extension Color {
    /**
     * A color object with a grayscale value of 1/3 and an alpha value of 1.0.
@@ -53,13 +58,13 @@ extension Color {
     */
    public static var darkGray: Color {
       .init(
-         light: .init(nsColor: NSColor.darkGray),
-         dark: .init(nsColor: NSColor.darkGray)
+         light: .init(nsColor: NSColor._darkGray),
+         dark: .init(nsColor: NSColor._darkGray)
       )
    }
    public static var lightGray: Color {
       // - Fixme: ⚠️️ look into: NSLightGray? or ask copilot?
-      .init(NSColor.lightGray)
+      .init(NSColor._lightGray)
    }
    public static var systemGray: Color {
       .init(NSColor.systemGray)

@@ -28,6 +28,7 @@ import HybridColor
     struct ContentView: View {
         var body: some View {
             Text("Hello, world!")
+                .foregroundColor(.whiteOrBlack) // white in dark-mode, black in light-mode
                 .padding()
                 .background(.init(light: .white, dark: .black))
         }

@@ -12,7 +12,8 @@ extension Color {
     * This method provides a way to define color sets for both light and dark mode.
     * - Description: It returns a dynamic color that automatically adjusts to the current interface style.
     * - Note: Works for iOS and macOS
-    * - Fixme: ⚠️️ add type to apperance and traitCollection
+    * - Fixme: ⚠️️ refactor to `Color(nsColor: NSColor(name: nil) { appearance in` for macOS and `Color(uiColor: UIColor { traitCollection in` for iOS
+    * - Fixme: ⚠️️ add type to apperance and traitCollection?
     * ## Examples:
     * let color: Color = .init(light: .black, dark: .white)
     * - Parameters:
@@ -21,8 +22,10 @@ extension Color {
     */
    public init(light: Color, dark: Color) {
       #if os(macOS)
-      self = Color(nsColor: NSColor(name: "DynamicColor", dynamicProvider: { appearance in // fix: doc this line
-         if appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua { // fix: doc this line
+      // Creates a named NSColor that dynamically provides the appropriate color based on the current appearance context.
+      self = Color(nsColor: NSColor(name: "DynamicColor", dynamicProvider: { appearance in
+         // Determines if the current appearance context matches the dark mode (darkAqua) and returns the corresponding color.
+         if appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua {
             return NSColor(dark) // Return the color for dark mode
          } else {
             return NSColor(light) // Return the color for light mode
@@ -52,18 +55,18 @@ extension Color {
    /**
     * Useful for dark and light mode
     * - Description: Provides a color that is white in light mode and black in dark mode, useful for background elements that need to adapt to the current UI theme.
-    * - Fixme: ⚠️️ Rename to whiteAndBlack? or instead wb? and bw? that would avoid name colision with current implementation code etc
+    * - Fixme: ⚠️️ Rename to whiteAndBlack? or instead `wb`? and `bw`? that would avoid name colision with current implementation code etc
     */
    public static let blackOrWhite: Color = {
-      Color.init(light: .white, dark: .black)
+      .init(light: .white, dark: .black)
    }()
    /**
     * Useful for dark and light mode
     * - Description: Provides a color that is black in light mode and white in dark mode, useful for foreground text or UI elements that need to contrast with their background.
-    * - Fixme: ⚠️️ Rename to blackOrWhite? or instead bw, that would avoid name colision with current implementation code etc
+    * - Fixme: ⚠️️ Rename to blackOrWhite? or instead `bw``, that would avoid name colision with current implementation code etc
     */
    public static let whiteOrBlack: Color = {
-      Color(light: .black, dark: .white)
+      .init(light: .black, dark: .white)
    }()
    /**
     * Use background color variants to indicate hierarchy
@@ -73,13 +76,31 @@ extension Color {
     * - Tertiary: For grouping content within secondary elements
     */
    #if os(macOS)
+   /**
+    * The color for the window's background. Typically used for the main background of your app's windows.
+    */
    public static let background: Color = .init(NSColor.windowBackgroundColor)
+   /**
+    * The color for content layered on top of the main background. Use this color to fill the background of any content that is layered on top of the window's background.
+    */
    public static let secondaryBackground: Color = .init(NSColor.underPageBackgroundColor)
+   /**
+    * The color for the background of large interface elements, such as scroll views, table views, and collection views. This color is appropriate for designs that have a layered interface with a depth effect.
+    */
    public static let tertiaryBackground: Color = .init(NSColor.controlBackgroundColor)
    #else
-   public static let background = Color(UIColor.systemBackground)
-   public static let secondaryBackground = Color(UIColor.secondarySystemBackground)
-   public static let tertiaryBackground = Color(UIColor.tertiarySystemBackground)
+   /**
+    * The color for the main background of an interface. It adapts to the current trait environment.
+    */
+   public static let background: Color = .init(UIColor.systemBackground)
+   /**
+    * The color for content layered on top of the main background. It adapts to the current trait environment.
+    */
+   public static let secondaryBackground: Color = .init(UIColor.secondarySystemBackground)
+   /**
+    * The color for the background of smaller interface elements, such as table view cells and text fields. It adapts to the current trait environment.
+    */
+   public static let tertiaryBackground: Color = .init(UIColor.tertiarySystemBackground)
    #endif
 }
 

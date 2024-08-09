@@ -15,7 +15,7 @@ extension Color {
     *   - hex: The hexadecimal value representing the color. This is a 32-bit integer where the first 8 bits represent the red component, the next 8 bits represent the green component, and the last 8 bits represent the blue component.
     *   - a: The alpha component of the color, ranging from 0 (transparent) to 1 (opaque).
     */
-   init(hex: Int, a: CGFloat = 1.0) {
+   public init(hex: Int, a: CGFloat = 1.0) {
       #if os(iOS)
       self.init(uiColor: .init(hex: hex, a: a))
       #elseif os(macOS)

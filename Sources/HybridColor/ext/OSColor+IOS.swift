@@ -2,7 +2,7 @@
 import UIKit
 /**
  * iOS
- * - Fixme: ⚠️️ check legacy for doc, similar code etc
+ * - Fixme: ⚠️️ make these public?
  */
 extension UIColor {
    /**
@@ -14,7 +14,7 @@ extension UIColor {
     *   - blue: 0-255
     *   - a: 0-100
     */
-   convenience init(red: Int, green: Int, blue: Int, a: CGFloat) {
+   internal convenience init(red: Int, green: Int, blue: Int, a: CGFloat) {
       assert(red >= 0 && red <= 255, "Invalid red component") // Assert that the red component is between 0 and 255
       assert(green >= 0 && green <= 255, "Invalid green component") // Assert that the green component is between 0 and 255
       assert(blue >= 0 && blue <= 255, "Invalid blue component") // Assert that the blue component is between 0 and 255
@@ -32,7 +32,7 @@ extension UIColor {
     *   - hex: 0x000000
     *   - a: 0-1
     */
-   convenience init(hex: Int, a: CGFloat = 1.0) {
+   internal convenience init(hex: Int, a: CGFloat = 1.0) {
       // self.init(red: (rgb >> 16) & 0xFF, green: (rgb >> 8) & 0xFF, blue: rgb & 0xFF)
       self.init(
          red: (hex >> 16) & 0xFF, // Extract the red component from the hex value using bit shifting and masking operations

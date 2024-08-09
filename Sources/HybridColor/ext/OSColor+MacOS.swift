@@ -1,6 +1,7 @@
 #if os(macOS)
 import Cocoa
 // macos
+// - Fixme: ⚠️️ make these public?
 extension NSColor {
    /**
     * Create a UIColor from RGB

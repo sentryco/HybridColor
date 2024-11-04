@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/HybridColor/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/HybridColor/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/127fa394-9f2f-4910-ae8a-d9ddf5638e62)](https://codebeat.co/projects/github-com-sentryco-hybridcolor-main)
 
 # 🌓 HybridColor
 

@@ -12,13 +12,13 @@ extension NSColor {
     * - Note: NSColor.darkGray is already occupid etc
     */
    public static var _darkGray: NSColor {
-      .init(red: 1.0/3.0, green: 1.0/3.0, blue: 1.0/3.0, alpha: 1.0)
+      .init(red: 1.0 / 3.0, green: 1.0 / 3.0, blue: 1.0 / 3.0, alpha: 1.0)
    }
    /**
     * - Note: NSColor.lightGray is already occupid etc
     */
    public static var _lightGray: NSColor {
-      .init(white: 2.0/3.0, alpha: 1.0)
+      .init(white: 2.0 / 3.0, alpha: 1.0)
    }
    /**
     * A neutral gray color that adapts to the current appearance settings.

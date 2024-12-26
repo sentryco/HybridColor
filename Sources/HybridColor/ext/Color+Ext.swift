@@ -3,10 +3,14 @@ import QuartzCore
 import SwiftUI
 #if os(iOS)
 import UIKit
-public typealias OSColor = UIColor // fix: doc this
+/// OSColor is a typealias for UIColor on iOS platforms
+/// This allows for consistent color handling across iOS and macOS
+public typealias OSColor = UIColor
 #elseif os(macOS)
 import Cocoa
-public typealias OSColor = NSColor // fix: doc this
+/// OSColor is a typealias for NSColor on macOS platforms
+/// This allows for consistent color handling across iOS and macOS
+public typealias OSColor = NSColor
 #endif
 /**
  * SwiftUI support for color tweaking

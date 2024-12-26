@@ -33,11 +33,14 @@ extension Color {
       })
       #else
       if #available(iOS 13.0, *) {
-         self = Color(uiColor: UIColor { traitCollection in // fix: doc this line
-            traitCollection.userInterfaceStyle == .dark ? UIColor(dark) : UIColor(light) // fix: doc this line
+         // Creates a UIColor that dynamically provides the appropriate color based on the current trait collection
+         self = Color(uiColor: UIColor { (_ traitCollection: UITraitCollection) in
+            // Returns the dark color if user interface style is dark, otherwise returns the light color
+            traitCollection.userInterfaceStyle == .dark ? UIColor(dark) : UIColor(light)
          })
       } else {
-         self = Color(light) // fix: doc this line
+         // For iOS versions below 13.0, we default to the light mode color since dark mode is not supported
+         self = Color(light)
       }
       #endif
    }

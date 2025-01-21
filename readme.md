@@ -1,5 +1,7 @@
 [![Tests](https://github.com/sentryco/HybridColor/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/HybridColor/actions/workflows/Tests.yml)
 [![codebeat badge](https://codebeat.co/badges/127fa394-9f2f-4910-ae8a-d9ddf5638e62)](https://codebeat.co/projects/github-com-sentryco-hybridcolor-main)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Swift Version](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
 
 # 🌓 HybridColor
 
@@ -53,3 +55,18 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Todo: 
 - Add systemGreen, systemPink, etc
+- Improvement
+Provide clear and actionable error messages, possibly using assertionFailure for debugging purposes.
+```swift
+guard let cgColor = self.cgColor else {
+    assertionFailure("Failed to retrieve cgColor from Color.")
+    return self
+}
+```
+- Improvement
+Add more color manipulation methods, such as adjusting saturation, hue, or creating complementary colors.
+```swift
+public func adjustedSaturation(by amount: CGFloat) -> Color {
+    // Implementation
+}
+```

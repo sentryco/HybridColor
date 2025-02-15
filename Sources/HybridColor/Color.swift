@@ -13,7 +13,6 @@ extension Color {
     * - Description: It returns a dynamic color that automatically adjusts to the current interface style.
     * - Note: Works for iOS and macOS
     * - Fixme: ⚠️️ refactor to `Color(nsColor: NSColor(name: nil) { appearance in` for macOS and `Color(uiColor: UIColor { traitCollection in` for iOS
-    * - Fixme: ⚠️️ add type to apperance and traitCollection?
     * ## Examples:
     * let color: Color = .init(light: .black, dark: .white)
     * - Parameters:
@@ -23,7 +22,7 @@ extension Color {
    public init(light: Color, dark: Color) {
       #if os(macOS)
       // Creates a named NSColor that dynamically provides the appropriate color based on the current appearance context.
-      self = Color(nsColor: NSColor(name: "DynamicColor") { appearance in
+      self = Color(nsColor: NSColor(name: "DynamicColor") {  (traitCollection: UITraitCollection) in
          // Determines if the current appearance context matches the dark mode (darkAqua) and returns the corresponding color.
          if appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua {
             return NSColor(dark) // Return the color for dark mode

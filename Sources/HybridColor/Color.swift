@@ -22,7 +22,7 @@ extension Color {
    public init(light: Color, dark: Color) {
       #if os(macOS)
       // Creates a named NSColor that dynamically provides the appropriate color based on the current appearance context.
-      self = Color(nsColor: NSColor(name: "DynamicColor") {  (traitCollection: UITraitCollection) in
+      self = Color(nsColor: NSColor(name: "DynamicColor") { appearance in /* (traitCollection: UITraitCollection)*/
          // Determines if the current appearance context matches the dark mode (darkAqua) and returns the corresponding color.
          if appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua {
             return NSColor(dark) // Return the color for dark mode
